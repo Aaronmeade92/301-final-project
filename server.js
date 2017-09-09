@@ -42,16 +42,45 @@ client.query(`
 .catch(console.error);
 };
 
-function loadUsers (){
-  fs.readFile('./public/data/users.json', (err, fd) => { JSON.parse(fs.toString()).forEach(ele => {
-    client.query(
-      'INSERT INTO users(user) VALUES($1) ON CONFLICT DO NOTHING',
-      [ele.user]
-      )
-      .catch(console.error);
-    })
+app.post('/', function(request, response){
+  client.query('
+  INSERT INTO users(name) VALUES($1) ON CONFLICT DO NOTHING',
+[request.body.name],
+  function(err) {
+    if (err) console.error(err)
+    queryTwo();
   })
+})
+
+function queryTwo() {
+  client.query(
+    `SELECT user_id FROM users WHERE user=$1`,
+    [request.body.name],
+    function(err, result) {
+      if (err) console.error(err)
+      queryThree(result.rows[0].user_id)
+    }
+  )
 }
+
+function queryThree(user_id) {
+  client.query(
+    `INSERT INTO
+    data(user_id, name, date, meals, sleep, meds, mood)
+    VALUES($1, $2, $3, $4, $5, $6, $7);`,
+    [user_id,
+    request.body.date
+    request.body.meals
+    request.body.sleep
+    request.body.meds
+    request.body.mood
+  ],
+  function(err) {
+    if(err) console.error(err);
+    response.send('insert complete');
+  });
+}
+
 //get request for user data when we get to it:
 // app.get('/articles/user', (request, response) => {
 //   let sql = `SELECT * FROM users
