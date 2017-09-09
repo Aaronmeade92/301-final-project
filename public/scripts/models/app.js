@@ -17,7 +17,7 @@ function Day(name, date, meals, sleep, meds, mood){
 function User(name){
   this.name = name;
   this.data = [];
-  }
+}
 
 User.fetchData = function(field, value){
   ///get request for data

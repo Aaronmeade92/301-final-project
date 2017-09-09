@@ -1,11 +1,5 @@
 'use strict'
 
-var handleClick = function(event){
-  var activeElement = ctx.getElementAtEvent(event);
-  console.log(activeElement);
-
-}
-
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -43,3 +37,8 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+var handleClick = function(event){
+  var activeElement = ctx.getElementAtEvent(event);
+
+}
