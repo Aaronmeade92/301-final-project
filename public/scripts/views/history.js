@@ -1,3 +1,5 @@
+'use strict'
+
 var handleClick = function(event){
   var activeElement = ctx.getElementAtEvent(event);
   console.log(activeElement);
@@ -41,4 +43,3 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-
