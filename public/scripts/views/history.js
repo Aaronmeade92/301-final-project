@@ -2,6 +2,7 @@
 
 var Chart = require('chart.js');
 
+<script>
   var ctx = document.getElementById('myChart').getContext('2d');
 
   var myChart = new Chart(ctx, {
@@ -27,6 +28,7 @@ var Chart = require('chart.js');
       }
     }
   });
+</script>
 
 var handleClick(event){
   var activeElement = ctx.getElementAtEvent(event);
