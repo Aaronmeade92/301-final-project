@@ -41,7 +41,6 @@ client.query(`
 }
 
 app.post('/days', function(request, response){
-
   client.query(`
   INSERT INTO users("user") VALUES($1) ON CONFLICT DO NOTHING`,
 [request.body.name],
