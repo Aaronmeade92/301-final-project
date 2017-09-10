@@ -43,8 +43,8 @@ $('#submit').on('click', function(e) {
   let moodText = $('#mood option:selected').text();
   let mood = convertMood(moodText);
 
-  let day = new Day(name, date, meals, sleep, meds, mood);
-  $.post('/days', day).then(console.log("Posted!"))
+  ///This post request doesn't work. crashes server
+  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood}).then(console.log("Posted!"))
 });
 }
 

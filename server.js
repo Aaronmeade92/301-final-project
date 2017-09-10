@@ -26,14 +26,14 @@ client.query(`
 client.query(`
   CREATE TABLE IF NOT EXISTS
   daysdata (
-    "data_id" SERIAL PRIMARY KEY,
+    data_id SERIAL PRIMARY KEY NOT NULL,
     "user_id" INTEGER NOT NULL REFERENCES users(user_id),
     "name" VARCHAR(225) NOT NULL,
     "date" VARCHAR(225) NOT NULL,
     "meals" VARCHAR(225) ARRAY[1000] NOT NULL,
-    "sleep" INTEGER(3) NOT NULL,
+    "sleep" INTEGER NOT NULL,
     "meds" VARCHAR(225),
-    "mood" INTEGER(1) NOT NULL
+    "mood" INTEGER NOT NULL
   )
 `).catch(console.error);
 }
@@ -62,7 +62,7 @@ function queryTwo() {
 function queryThree(user_id) {
   client.query(
     `INSERT INTO
-    data(user_id, name, date, meals, sleep, meds, mood)
+    daysdata(user_id, name, date, meals, sleep, meds, mood)
     VALUES($1, $2, $3, $4, $5, $6, $7);`,
     [user_id,
     request.body.date,
