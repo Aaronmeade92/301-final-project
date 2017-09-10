@@ -42,9 +42,9 @@ $('#submit').on('click', function(e) {
   let meds = $('#medications').val();
   let moodText = $('#mood option:selected').text();
   let mood = convertMood(moodText);
+  let exercise = $('#exercise').val();
 
-  ///This post request doesn't work. crashes server
-  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood}).then(console.log("Posted!"))
+  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(console.log(name))
 });
 }
 

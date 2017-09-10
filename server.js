@@ -11,6 +11,7 @@ client.connect();
 client.on('error', err => console.error(err));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 loadDB();
 
@@ -27,52 +28,57 @@ client.query(`
   CREATE TABLE IF NOT EXISTS
   daysdata (
     data_id SERIAL PRIMARY KEY NOT NULL,
-    "user_id" INTEGER NOT NULL REFERENCES users(user_id),
+    user_id INTEGER NOT NULL REFERENCES users(user_id),
     "name" VARCHAR(225) NOT NULL,
     "date" VARCHAR(225) NOT NULL,
     "meals" VARCHAR(225) ARRAY[1000] NOT NULL,
     "sleep" INTEGER NOT NULL,
     "meds" VARCHAR(225),
-    "mood" INTEGER NOT NULL
+    "mood" INTEGER NOT NULL,
+    "exercise" VARCHAR(225)
   )
 `).catch(console.error);
 }
 
 app.post('/days', function(request, response){
+
   client.query(`
-  INSERT INTO users(name) VALUES($1) ON CONFLICT DO NOTHING`,
+  INSERT INTO users("user") VALUES($1) ON CONFLICT DO NOTHING`,
 [request.body.name],
   function(err) {
-    if (err) console.error(err)
-    queryTwo();
+    if (err) console.error(`Insert into users: ${err}`)
+    queryTwo(request, response);
   })
 })
 
-function queryTwo() {
+function queryTwo(request, response) {
+  console.error(`Request.body: ${request.body.name}`)
   client.query(
-    `SELECT user_id FROM users WHERE user=$1`,
+    `SELECT user_id FROM users WHERE "user"=$1`,
     [request.body.name],
     function(err, result) {
-      if (err) console.error(err)
-      queryThree(result.rows[0].user_id)
+      if (err) console.error(`Finding user: ${err}`)
+      queryThree(result.rows[0].user_id, request, response)
     }
   )
 }
 
-function queryThree(user_id) {
+function queryThree(user_id, request, response) {
   client.query(
     `INSERT INTO
-    daysdata(user_id, name, date, meals, sleep, meds, mood)
-    VALUES($1, $2, $3, $4, $5, $6, $7);`,
+    daysdata(user_id, "name", "date", "meals", "sleep", "meds", "mood", "exercise")
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8);`,
     [user_id,
+    request.body.name,
     request.body.date,
     request.body.meals,
     request.body.sleep,
     request.body.meds,
-    request.body.mood
+    request.body.mood,
+    request.body.exercise
   ],
   function(err) {
-    if(err) console.error(err);
+    if(err) console.error(`Insert into daydata: ${err}`);
     response.send('insert complete');
   });
 }
