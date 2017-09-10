@@ -29,9 +29,48 @@ User.fetchData = function(field, value){
   })
 }
 
-///just testting chart data
-User.testPush = function(){
-userData.push(new Day('test', '10/03/2017', 'tacos', 8, 'taco meds', 3));
+function submitForm () {
+$('#submit').on('click', function(e) {
+  e.preventDefault();
+  console.log('is this working');
+  ///TODO: exercise and suppliments
+  let name = $('#name').val();
+  let today = new Date();
+  let date = today.setDate(today.getDate()-1);
+  let sleep = $('#hours').val();
+  let meals = [$('#breakfast').val(),$('#lunch').val(),$('#dinner').val(), $('#snacks').val()];
+  let meds = $('#medications').val();
+  let moodText = $('#mood option:selected').text();
+  let mood = convertMood(moodText);
+
+  let day = new Day(name, date, meals, sleep, meds, mood);
+  $.post('/days', day).then(console.log("Posted!"))
+});
+}
+
+function convertMood(mood){
+  switch (mood) {
+    case 'Excellent':
+      return 6;
+      break;
+    case 'Very good':
+      return 5;
+      break;
+    case 'Good':
+      return 4;
+      break;
+    case 'Not so bad':
+      return 3;
+      break;
+    case 'Bad':
+      return 2;
+      break;
+    case 'Terrible':
+      return 1;
+      break;
+    default: return 0;
+
+  }
 }
 
 module.Day = Day;
@@ -40,4 +79,4 @@ module.userData = userData;
 
 })(app);
 
-app.User.testPush();
+app.submitForm();
