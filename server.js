@@ -42,7 +42,7 @@ client.query(`
 .catch(console.error);
 };
 
-app.post('/', function(request, response){
+app.post('/days', function(request, response){
   client.query('
   INSERT INTO users(name) VALUES($1) ON CONFLICT DO NOTHING',
 [request.body.name],
