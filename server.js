@@ -50,6 +50,19 @@ app.post('/days', function(request, response){
   })
 })
 
+app.get('/history/:name', function(request,response){
+  client.query(`
+    SELECT * FROM daysdata
+    INNER JOIN users
+      ON daysdata.user_id = users.user_id
+      WHERE "user"=$1
+    `,[request.params.name])
+    .then(result => {
+      response.send(result.rows);
+    })
+  .catch(console.error);
+})
+
 function queryTwo(request, response) {
   console.error(`Request.body: ${request.body.name}`)
   client.query(
