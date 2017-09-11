@@ -51,7 +51,6 @@ app.post('/days', function(request, response){
 })
 
 app.get('/history/:name', function(request,response){
-  console.error(request.params.name);
   client.query(`
     SELECT * FROM daysdata
     INNER JOIN users
@@ -59,7 +58,6 @@ app.get('/history/:name', function(request,response){
       WHERE "user"=$1
     `,[request.params.name])
     .then(result => {
-      console.error(result);
       response.send(result.rows);
     })
   .catch(console.error);

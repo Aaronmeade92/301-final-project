@@ -2,9 +2,14 @@
 
 var users = [];
 var app = app || {};
-var userData = [];
+var userData = userData || [];
+var userName = '';
 
 (function (module){
+
+var labelData = [];
+var dayData = [];
+
 function Day(name, date, meals, sleep, meds, mood){
   this.name = name;
   this.date = date;
@@ -30,19 +35,16 @@ $('#submit').on('click', function(e) {
   let sleep = $('#hours').val();
   let meals = [$('#breakfast').val(),$('#lunch').val(),$('#dinner').val(), $('#snacks').val()];
   let meds = $('#medications').val();
-  let moodText = $('#mood option:selected').text();
+  let moodText = $('#mood option:selected').text(); //TODO: This doesn't work
   let mood = convertMood(moodText);
   let exercise = $('#exercise').val();
 
   $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(response => {
-    console.log(name)
-    $.get(`/history/${name}`)
-    .then(results =>{
-      console.log(results);
-      userData = results;
+    console.log(name);
+    userName = name;
+    window.location.href='/history.html'
     })
   })
-});
 }
 
 function convertMood(mood){
@@ -74,6 +76,10 @@ module.Day = Day;
 module.User = User;
 module.userData = userData;
 module.submitForm = submitForm;
+// module.getHistory = getHistory;
+module.userName = userName;
+module.labelData = labelData;
+module.dayData = dayData;
 
 })(app);
 
