@@ -50,14 +50,14 @@ app.post('/days', function(request, response){
   })
 })
 
-app.get('/history', function(request,response){
-  console.error(request.body.name);
+app.get('/history/:name', function(request,response){
+  console.error(request.params.name);
   client.query(`
     SELECT * FROM daysdata
     INNER JOIN users
       ON daysdata.user_id = users.user_id
       WHERE "user"=$1
-    `,[request.body.name])
+    `,[request.params.name])
     .then(result => {
       console.error(result);
       response.send(result.rows);

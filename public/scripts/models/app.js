@@ -36,7 +36,7 @@ $('#submit').on('click', function(e) {
 
   $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(response => {
     console.log(name)
-    $.get('/history', {name: name})
+    $.get(`/history/${name}`)
     .then(results =>{
       console.log(results);
       userData = results;
