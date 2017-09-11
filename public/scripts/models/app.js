@@ -34,7 +34,7 @@ $('#submit').on('click', function(e) {
   let sleep = $('#hours').val();
   let meals = [$('#breakfast').val(),$('#lunch').val(),$('#dinner').val(), $('#snacks').val()];
   let meds = $('#medications').val();
-  let moodText = $('#mood option:selected').text(); //TODO: This doesn't work
+  let moodText = $('#mood option:selected').text();
   let mood = convertMood(moodText);
   let exercise = $('#exercise').val();
 
