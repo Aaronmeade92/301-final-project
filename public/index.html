@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
     <meta charset="utf-8">
     <title>Mood Ring</title>
-  </head>
-  <body>
+</head>
+
+<body>
+    <header>
+        <!-- NAVBAR WITH RESPONSIVE TOGGLE -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="#">MoodRing</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link  icon-home" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Form</a>
+                        </li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="container">
-      <div style="padding: 1em 0">
-        <h1 class="text-center">Mood Form</h1>
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="col-md-8">
-          <!-- FORM -->
-          <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" class="form-control form-control-sm" placeholder="Enter name">
-            </div>
-            <div class="form-group">
-                <label for="hours">How many hours of sleep did you get yesterday?</label>
-                <input type="text" id="hours" class="form-control form-control-sm" placeholder="Enter hours">
-            </div>
-            <div id="meals" class="form-group">
-                <label for="meals">What did you eat yesterday?</label>
-                <input type="text" id="breakfast" class="form-control form-control-sm mb-2" placeholder="Enter Breakfast">
-                <input type="text" id="lunch" class="form-control form-control-sm my-2" placeholder="Enter Lunch">
-                <input type="text" id="dinner" class="form-control form-control-sm my-2" placeholder="Enter Dinner">
-                <input type="text" id="snacks" class="form-control form-control-sm my-2" placeholder="Enter Snacks">
-            </div>
-            <div id="exercise" class="form-group">
-                  <label class="" for="exercise">Did you exercise yesterday?</label>
-                  <select class="selectpicker ml-2">
-                      <option>---</option>
-                      <option>Yes</option>
-                      <option>No</option>
-                  </select>
-                  <input type="text" id="exercise" class="form-control form-control-sm my-2" placeholder="Enter Time Spent Exercising">
-            </div>
-            <div class="form-group">
-                <label for="supplements">Supplements</label>
-                <input type="text" id="hours" class="form-control form-control-sm" placeholder="Enter Supplements">
-            </div>
-            <div class="form-group">
-                <label for="hours">Medications</label>
-                <input type="text" id="medications" class="form-control form-control-sm" placeholder="Enter Medications">
-            </div>
-            <div class="form-group">
-              <label class="" for="mood">What is your mood like?</label>
-              <select class="selectpicker ml-2">
+        <div style="padding: 1em 0">
+            <h1 class="text-center">Mood Form</h1>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <!-- FORM -->
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control form-control-sm" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="hours">How many hours of sleep did you get yesterday?</label>
+                        <input type="text" id="hours" class="form-control form-control-sm" placeholder="Enter hours">
+                    </div>
+                    <div id="meals" class="form-group">
+                        <label for="meals">What did you eat yesterday?</label>
+                        <input type="text" id="breakfast" class="form-control form-control-sm mb-2" placeholder="Enter Breakfast">
+                        <input type="text" id="lunch" class="form-control form-control-sm my-2" placeholder="Enter Lunch">
+                        <input type="text" id="dinner" class="form-control form-control-sm my-2" placeholder="Enter Dinner">
+                        <input type="text" id="snacks" class="form-control form-control-sm my-2" placeholder="Enter Snacks">
+                    </div>
+                    <div id="exercise" class="form-group">
+                        <label class="" for="exercise">Did you exercise yesterday?</label>
+                        <select class="selectpicker ml-2">
+                        <option>---</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                        <input type="text" id="exercise" class="form-control form-control-sm my-2" placeholder="Enter Time Spent Exercising">
+                    </div>
+                    <div class="form-group">
+                        <label for="supplements">Supplements</label>
+                        <input type="text" id="hours" class="form-control form-control-sm" placeholder="Enter Supplements">
+                    </div>
+                    <div class="form-group">
+                        <label for="hours">Medications</label>
+                        <input type="text" id="medications" class="form-control form-control-sm" placeholder="Enter Medications">
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="mood">What is your mood like?</label>
+                        <select class="selectpicker ml-2">
                 <option>---</option>
                 <option>Excellent</option>
                 <option>Very good</option>
@@ -59,23 +83,21 @@
                 <option>Not so bad</option>
                 <option>Bad</option>
                 <option>Terrible</option>
-              </select>
+                </select>
+                    </div>
+                    <div class="row justify-content-center" style="margin-top: 2em">
+                        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                    </div>
+                </form>
+                <!-- END OF FORM -->
             </div>
-            <div class="row justify-content-center" style="margin-top: 2em">
-              <button class="btn btn-primary btn-lg" type="submit">Submit</button>
-            </div>
-          </form>
-          <!-- END OF FORM -->
         </div>
-      </div>
     </div>
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-  <script src="scripts/models/app.js"></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="scripts/models/app.js"></script>
+</body>
+
 </html>
