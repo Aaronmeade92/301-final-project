@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var users = [];
 var app = app || {};
@@ -19,16 +19,6 @@ function User(name){
   this.data = [];
 }
 
-User.fetchData = function(field, value){
-  ///get request for data
-  $.get('history/user', {field: field, val: value})
-  .then(results => {
-    results.forEach(function(day){
-      userData.push(new Day(day.name, day.date, day.meals, day.sleep, day.meds, day.mood));
-    })
-  })
-}
-
 function submitForm () {
 $('#submit').on('click', function(e) {
   e.preventDefault();
@@ -42,9 +32,9 @@ $('#submit').on('click', function(e) {
   let meds = $('#medications').val();
   let moodText = $('#mood option:selected').text();
   let mood = convertMood(moodText);
+  let exercise = $('#exercise').val();
 
-  let day = new Day(name, date, meals, sleep, meds, mood);
-  $.post('/days', day).then(console.log("Posted!"))
+  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(console.log(name))
 });
 }
 
@@ -76,6 +66,7 @@ function convertMood(mood){
 module.Day = Day;
 module.User = User;
 module.userData = userData;
+module.submitForm = submitForm;
 
 })(app);
 
