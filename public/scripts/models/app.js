@@ -3,7 +3,6 @@
 var users = [];
 var app = app || {};
 var userData = userData || [];
-var userName = '';
 
 (function (module){
 
@@ -41,7 +40,7 @@ $('#submit').on('click', function(e) {
 
   $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(response => {
     console.log(name);
-    userName = name;
+    localStorage.userName = name;
     window.location.href='/history.html'
     })
   })
@@ -76,8 +75,6 @@ module.Day = Day;
 module.User = User;
 module.userData = userData;
 module.submitForm = submitForm;
-// module.getHistory = getHistory;
-module.userName = userName;
 module.labelData = labelData;
 module.dayData = dayData;
 

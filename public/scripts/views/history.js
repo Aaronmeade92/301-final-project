@@ -1,7 +1,6 @@
 'use strict';
 var app = app || {};
 var userData = userData || [];
-var userName = 'Raegan'; ///TODO: make this work with the variable
 
 (function(name){
   $.get(`/history/${name}`)
@@ -59,4 +58,4 @@ var userName = 'Raegan'; ///TODO: make this work with the variable
     }
 
   });
-})(userName);
+})(localStorage.userName);
