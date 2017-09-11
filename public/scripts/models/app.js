@@ -34,7 +34,14 @@ $('#submit').on('click', function(e) {
   let mood = convertMood(moodText);
   let exercise = $('#exercise').val();
 
-  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(console.log(name))
+  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(response => {
+    console.log(name)
+    $.get('/history', {name: name})
+    .then(results =>{
+      console.log(results);
+      userData = results;
+    })
+  })
 });
 }
 
