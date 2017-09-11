@@ -2,9 +2,13 @@
 
 var users = [];
 var app = app || {};
-var userData = [];
+var userData = userData || [];
 
 (function (module){
+
+var labelData = [];
+var dayData = [];
+
 function Day(name, date, meals, sleep, meds, mood){
   this.name = name;
   this.date = date;
@@ -34,8 +38,12 @@ $('#submit').on('click', function(e) {
   let mood = convertMood(moodText);
   let exercise = $('#exercise').val();
 
-  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(console.log(name))
-});
+  $.post('/days', {name: name, date: today, meals: meals, sleep: sleep, meds: meds, mood: mood, exercise: exercise}).then(response => {
+    console.log(name);
+    localStorage.userName = name;
+    window.location.href='/history.html'
+    })
+  })
 }
 
 function convertMood(mood){
@@ -67,6 +75,8 @@ module.Day = Day;
 module.User = User;
 module.userData = userData;
 module.submitForm = submitForm;
+module.labelData = labelData;
+module.dayData = dayData;
 
 })(app);
 
