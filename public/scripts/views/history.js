@@ -60,7 +60,7 @@ var userData = userData || [];
   });
 
   var handleClick = function(event){
-    var activeElement = myChart.getElementAtEvent(event);
+    var activeElement =chart.getElementAtEvent(event);
     console.log('working');
   }
 })(localStorage.userName);
