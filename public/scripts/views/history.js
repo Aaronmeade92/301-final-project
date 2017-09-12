@@ -53,7 +53,7 @@ var userData = userData || [];
     });
 
     var handleClick = function(event){
-      var activeElement = ctx.getElementAtEvent(event);
+      var activeElement = myChart.getElementAtEvent(event);
       console.log('working');
     }
 
