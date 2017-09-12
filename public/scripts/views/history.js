@@ -49,7 +49,6 @@ var userData = userData || [];
                   }
               }]
           }
-          onClick: handleClick
       }
     });
 
