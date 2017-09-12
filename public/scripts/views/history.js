@@ -52,10 +52,15 @@ var userData = userData || [];
       }
     });
 
-    var handleClick = function(event){
-      var activeElement = myChart.getElementAtEvent(event);
-      console.log('working');
-    }
+    // var handleClick = function(event){
+    //   var activeElement = myChart.getElementAtEvent(event);
+    //   console.log('working');
+    // }
 
   });
+
+  var handleClick = function(event){
+    var activeElement = myChart.getElementAtEvent(event);
+    console.log('working');
+  }
 })(localStorage.userName);
