@@ -54,7 +54,7 @@ var userData = userData || [];
 
     var handleClick = function(event){
       var activeElement = ctx.getElementAtEvent(event);
-      console.log('is this working?');
+      console.log('working');
     }
 
   });
