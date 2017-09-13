@@ -76,17 +76,17 @@ var userData = userData || [];
                     tooltipEl.classList.add('no-transform');
                 }
 
-                function getBody(bodyItem) {
-                    // let dayPoint = JSON.stringify(userData[bodyItem.index]);
-                    // return dayPoint;
-                    return bodyItem.lines
-                }
+                // function getBody(bodyItem) {
+                //     return bodyItem.lines
+                // }
 
                 // Set Text
                 if (tooltipModel.body) {
                     var titleLines = tooltipModel.title || [];
-                    var bodyLines = tooltipModel.body.map(getBody);
-                    debugger;
+                    var i = tooltipModel.dataPoints[0].index
+                    var bodyLines = tooltipModel.body.map(function(bodyItem){
+                      return JSON.stringify(userData[i]);
+                    });
                     var innerHtml = '<thead>';
 
                     titleLines.forEach(function(title) {
