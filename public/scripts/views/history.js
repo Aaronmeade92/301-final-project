@@ -7,7 +7,8 @@ var userData = userData || [];
   .then(results =>{
     userData = results;
     app.labelData = userData.map(function(day){
-      return day.x;
+      let label = new Day(day)
+      return label.x;
     });
     app.dayData = userData.map(function(day){
       return new app.Day(day);
@@ -42,10 +43,6 @@ var userData = userData || [];
       },
       options: {
           scales: {
-            xAxes: [{
-                type: 'linear',
-                position: 'bottom'
-            }],
               yAxes: [{
                   ticks: {
                       beginAtZero:true
