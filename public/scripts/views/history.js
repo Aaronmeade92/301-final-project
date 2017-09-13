@@ -77,7 +77,9 @@ var userData = userData || [];
                 }
 
                 function getBody(bodyItem) {
-                    return bodyItem.lines;
+                    let indexNum = tooltipModel.body.indexOf(bodyItem);
+                    let dayPoint = userData[indexNum];
+                    return dayPoint;
                 }
 
                 // Set Text
