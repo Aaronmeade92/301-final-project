@@ -52,13 +52,11 @@ var userData = userData || [];
       }
     });
 
-    var handleClick = function(event){
-      var activeElement = myChart.getElementAtEvent(event);
-      console.log('working');
-    }
+    $('#myChart').click(function() {
+      console.log('work');
+    })
 
   });
 
-})(localStorage.userName);\
 
-handleClick();
+})(localStorage.userName);
