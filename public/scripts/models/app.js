@@ -11,7 +11,7 @@ var dayData = [];
 
 function Day(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-    let thisDate = new Date(rawDataObject.date).toUTCString();
+    let thisDate = new Date(rawDataObj.date).toUTCString();
     thisDate= thisDate.split(' ').slice(0, 4).join(' ')
     this.x = thisDate;
     this.y = rawDataObj.mood;
