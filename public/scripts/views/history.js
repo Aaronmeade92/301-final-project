@@ -118,6 +118,7 @@ var userData = userData || [];
                 tooltipEl.style.fontStyle = tooltipModel._fontStyle;
                 tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
             }
+          }
       }
     });
 
