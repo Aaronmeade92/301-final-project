@@ -43,6 +43,10 @@ var userData = userData || [];
       },
       options: {
           scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }],
               yAxes: [{
                   ticks: {
                       beginAtZero:true
