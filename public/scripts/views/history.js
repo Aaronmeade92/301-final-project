@@ -78,7 +78,7 @@ var userData = userData || [];
 
                 function getBody(bodyItem) {
                     let indexNum = tooltipModel.body.indexOf(bodyItem);
-                    let dayPoint = userData[indexNum];
+                    let dayPoint = JSON.stringify(userData[indexNum]);
                     return dayPoint;
                 }
 
