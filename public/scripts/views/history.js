@@ -76,10 +76,10 @@ var userData = userData || [];
                     tooltipEl.classList.add('no-transform');
                 }
 
-                function getBody(bodyItem) {
-                    let indexNum = tooltipModel.body.indexOf(bodyItem);
-                    let dayPoint = JSON.stringify(userData[indexNum]);
+                function getBody(index, bodyItem) {
+                    let dayPoint = JSON.stringify(userData[index]);
                     return dayPoint;
+                    // return bodyItem.lines
                 }
 
                 // Set Text
