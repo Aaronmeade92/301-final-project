@@ -7,7 +7,7 @@ var userData = userData || [];
   .then(results =>{
     userData = results;
     app.labelData = userData.map(function(day){
-      let label = new Day(day)
+      let label = new app.Day(day)
       return label.x;
     });
     app.dayData = userData.map(function(day){
