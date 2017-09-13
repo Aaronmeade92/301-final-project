@@ -58,4 +58,7 @@ var userData = userData || [];
     }
 
   });
-})(localStorage.userName);
+
+})(localStorage.userName);\
+
+handleClick();
