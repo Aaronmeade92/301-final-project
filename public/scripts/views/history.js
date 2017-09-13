@@ -77,17 +77,16 @@ var userData = userData || [];
                 }
 
                 function getBody(bodyItem) {
-                    let dayPoint = JSON.stringify(userData[bodyItem.index]);
-                    debugger;
-                    return dayPoint;
-                    // return bodyItem.lines
+                    // let dayPoint = JSON.stringify(userData[bodyItem.index]);
+                    // return dayPoint;
+                    return bodyItem.lines
                 }
 
                 // Set Text
                 if (tooltipModel.body) {
                     var titleLines = tooltipModel.title || [];
                     var bodyLines = tooltipModel.body.map(getBody);
-
+                    debugger;
                     var innerHtml = '<thead>';
 
                     titleLines.forEach(function(title) {
