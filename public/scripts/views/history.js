@@ -10,7 +10,7 @@ var userData = userData || [];
       return day.x;
     });
     app.dayData = userData.map(function(day){
-      return new Day(day);
+      return new app.Day(day);
     })
 
     var ctx = document.getElementById("myChart").getContext('2d');
