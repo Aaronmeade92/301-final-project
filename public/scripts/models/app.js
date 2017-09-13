@@ -9,14 +9,14 @@ var userData = userData || [];
 var labelData = [];
 var dayData = [];
 
-function Day(name, date, meals, sleep, meds, mood){
-  this.name = name;
-  this.date = date;
-  this.meals = meals;
-  this.sleep = sleep;
-  this.meds = meds;
-  this.mood = mood;
-}
+function Day(rawDataObj) {
+    Object.keys(rawDataObj).forEach(key =>this[key] = rawDataObj[key]);
+    let thisDate = new Date(rawDataObject.date).toUTCString();
+    thisDate= thisDate.split(' ').slice(0, 4).join(' ')
+    this.x = thisDate;
+    this.y = rawDataObj.mood;
+};
+
 
 function User(name){
   this.name = name;

@@ -7,11 +7,10 @@ var userData = userData || [];
   .then(results =>{
     userData = results;
     app.labelData = userData.map(function(day){
-      return day.date;
+      return day.x;
     });
     app.dayData = userData.map(function(day){
-      console.log(day);
-      return day.mood;
+      return new Day(day);
     })
 
     var ctx = document.getElementById("myChart").getContext('2d');
