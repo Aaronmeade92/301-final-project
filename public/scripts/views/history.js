@@ -83,8 +83,9 @@ var userData = userData || [];
                     var titleLines = tooltipModel.title || [];
                     var i = tooltipModel.dataPoints[0].index
                     var bodyLines = tooltipModel.body.map(function(bodyItem){
-                      return JSON.stringify(userData[i]);
+                      return userData[i].name;
                     });
+
                     var innerHtml = '<thead>';
 
                     titleLines.forEach(function(title) {
@@ -123,5 +124,6 @@ var userData = userData || [];
     });
 
   });
+
 
 })(localStorage.userName);
