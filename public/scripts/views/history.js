@@ -87,6 +87,7 @@ var userData = userData || [];
                       let bodyHTML = `<table id="tooltip-data"><thead><tr><th>Mood</th><th>Sleep</th><th>Meals</th><th>Exercise</th><th>Medications and Supplements</th></tr></thead><tbody><tr><td>${data.mood}</td><td>${data.sleep}</td><td>${data.meals[0]}<br/>${data.meals[1]}<br/>${data.meals[2]}</td><td>${data.exercise}</td><td>${data.meds}</td></tr></tbody></table>`
                       return bodyHTML;
                     });
+
                     var innerHtml = '<thead>';
 
                     titleLines.forEach(function(title) {
@@ -125,5 +126,6 @@ var userData = userData || [];
     });
 
   });
+
 
 })(localStorage.userName);
