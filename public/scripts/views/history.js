@@ -83,7 +83,13 @@ var userData = userData || [];
                     var titleLines = tooltipModel.title || [];
                     var i = tooltipModel.dataPoints[0].index
                     var bodyLines = tooltipModel.body.map(function(bodyItem){
-                      return userData[i].name;
+                      let userDataEntries = [
+                        userData[i].name,
+                        userData[i].date,
+                        userData[i].meals,
+                      ]
+                      return userDataEntries;
+                      // return Object.values(userData[i]);
                     });
 
                     var innerHtml = '<thead>';
