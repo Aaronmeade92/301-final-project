@@ -8,5 +8,18 @@
   color: #ffffff;
   font-style: oblique;
   font-size: 20px;
-  
+
+}
+
+#tooltip-data, #tooltip-data td, #tooltip-data th{
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+#tooltip-data th, #tooltip-data td {
+  padding: 20px;
+}
+
+#tooltip-data td {
+  font-size: 1.3em;
 }
