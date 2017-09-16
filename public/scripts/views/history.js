@@ -87,9 +87,10 @@ var userData = userData || [];
                         userData[i].name,
                         userData[i].date,
                         userData[i].meals,
+                        userData[i].mood
                       ]
                       return userDataEntries;
-                      // return Object.values(userData[i]);
+
                     });
 
                     var innerHtml = '<thead>';
